@@ -22,13 +22,20 @@ struct NavBarView: View {
 //                Text("View 3")
             case 1:
                 // Replace this with the view you want to navigate to for button 2
-                testView()
+                historyView()
+                
             case 2:
                 // Replace this with the view you want to navigate to for button 3
-                Text("View 3")
+                testView()
+                
             case 3:
                 // Replace this with the view you want to navigate to for button 4
-                Text("View 4")
+                viewView()
+                
+            case 4:
+                // Replace this with the view you want to navigate to for button 3
+                myProfileView()
+                
             default:
                 Text("Unknown view")
             }
@@ -37,7 +44,7 @@ struct NavBarView: View {
             
             
             HStack {
-        
+                
                 Button(action: {
                     selectedIndex = 0
                 }) {
@@ -50,10 +57,11 @@ struct NavBarView: View {
                 
                 Spacer()
                 
+                //
                 Button(action: {
                     selectedIndex = 1
                 }) {
-                    Image(systemName: "bell")
+                    Image(systemName: "person.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
@@ -61,11 +69,11 @@ struct NavBarView: View {
                 .foregroundColor(selectedIndex == 1 ? .blue : .gray)
                 
                 Spacer()
-                
+                //
                 Button(action: {
                     selectedIndex = 2
                 }) {
-                    Image(systemName: "person.circle")
+                    Image(systemName: "paperplane.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
@@ -73,11 +81,11 @@ struct NavBarView: View {
                 .foregroundColor(selectedIndex == 2 ? .blue : .gray)
                 
                 Spacer()
-                
+                //
                 Button(action: {
                     selectedIndex = 3
                 }) {
-                    Image(systemName: "gearshape")
+                    Image(systemName: "map.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
@@ -85,6 +93,21 @@ struct NavBarView: View {
                 .foregroundColor(selectedIndex == 3 ? .blue : .gray)
                 
                 Spacer()
+              //
+                //
+                Button(action: {
+                    selectedIndex = 4 
+                }) {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                }
+                .foregroundColor(selectedIndex == 4 ? .blue : .gray)
+                
+                Spacer()
+            //
+                
             }
             
             .padding(.horizontal)
