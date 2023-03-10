@@ -8,22 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		E4C9531B29BAF2E700B1D912 /* PLWD_CaregiverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9531A29BAF2E700B1D912 /* PLWD_CaregiverApp.swift */; };
-		E4C9531D29BAF2E700B1D912 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9531C29BAF2E700B1D912 /* ContentView.swift */; };
 		E4C9531F29BAF2E800B1D912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C9531E29BAF2E800B1D912 /* Assets.xcassets */; };
 		E4C9532229BAF2E800B1D912 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C9532129BAF2E800B1D912 /* Preview Assets.xcassets */; };
 		E4C9532A29BAF3CC00B1D912 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E4C9532929BAF3CC00B1D912 /* FirebaseAuth */; };
 		E4C9532C29BAF3CC00B1D912 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E4C9532B29BAF3CC00B1D912 /* FirebaseDatabase */; };
 		E4C9532E29BAF3CC00B1D912 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E4C9532D29BAF3CC00B1D912 /* FirebaseFirestore */; };
 		E4C9533029BAF41E00B1D912 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4C9532F29BAF41E00B1D912 /* GoogleService-Info.plist */; };
+		E4C9533229BAF50B00B1D912 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533129BAF50B00B1D912 /* ContentView.swift */; };
+		E4C9533429BAF52400B1D912 /* createnewaccountUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533329BAF52400B1D912 /* createnewaccountUIView.swift */; };
+		E4C9533629BAF53A00B1D912 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533529BAF53A00B1D912 /* NavBarView.swift */; };
+		E4C9533829BAF54F00B1D912 /* users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533729BAF54F00B1D912 /* users.swift */; };
+		E4C9533A29BAF57400B1D912 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533929BAF57400B1D912 /* viewModel.swift */; };
+		E4C9533C29BAF5B100B1D912 /* variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533B29BAF5B100B1D912 /* variables.swift */; };
+		E4C9533E29BAF7A000B1D912 /* bluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9533D29BAF7A000B1D912 /* bluetoothView.swift */; };
+		E4C9534129BAF9AB00B1D912 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534029BAF9AB00B1D912 /* MapView.swift */; };
+		E4C9534329BAFB6C00B1D912 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534229BAFB6C00B1D912 /* testView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4C9531729BAF2E700B1D912 /* PLWD Caregiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PLWD Caregiver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C9531A29BAF2E700B1D912 /* PLWD_CaregiverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLWD_CaregiverApp.swift; sourceTree = "<group>"; };
-		E4C9531C29BAF2E700B1D912 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4C9531E29BAF2E800B1D912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C9532129BAF2E800B1D912 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4C9532F29BAF41E00B1D912 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4C9533129BAF50B00B1D912 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E4C9533329BAF52400B1D912 /* createnewaccountUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createnewaccountUIView.swift; sourceTree = "<group>"; };
+		E4C9533529BAF53A00B1D912 /* NavBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
+		E4C9533729BAF54F00B1D912 /* users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = users.swift; sourceTree = "<group>"; };
+		E4C9533929BAF57400B1D912 /* viewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
+		E4C9533B29BAF5B100B1D912 /* variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = variables.swift; sourceTree = "<group>"; };
+		E4C9533D29BAF7A000B1D912 /* bluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetoothView.swift; sourceTree = "<group>"; };
+		E4C9533F29BAF8F600B1D912 /* PLWD-Caregiver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PLWD-Caregiver-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E4C9534029BAF9AB00B1D912 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E4C9534229BAFB6C00B1D912 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +76,18 @@
 		E4C9531929BAF2E700B1D912 /* PLWD Caregiver */ = {
 			isa = PBXGroup;
 			children = (
+				E4C9533F29BAF8F600B1D912 /* PLWD-Caregiver-Info.plist */,
 				E4C9532F29BAF41E00B1D912 /* GoogleService-Info.plist */,
 				E4C9531A29BAF2E700B1D912 /* PLWD_CaregiverApp.swift */,
-				E4C9531C29BAF2E700B1D912 /* ContentView.swift */,
+				E4C9533529BAF53A00B1D912 /* NavBarView.swift */,
+				E4C9534029BAF9AB00B1D912 /* MapView.swift */,
+				E4C9533129BAF50B00B1D912 /* ContentView.swift */,
+				E4C9533D29BAF7A000B1D912 /* bluetoothView.swift */,
+				E4C9533329BAF52400B1D912 /* createnewaccountUIView.swift */,
+				E4C9533729BAF54F00B1D912 /* users.swift */,
+				E4C9533929BAF57400B1D912 /* viewModel.swift */,
+				E4C9533B29BAF5B100B1D912 /* variables.swift */,
+				E4C9534229BAFB6C00B1D912 /* testView.swift */,
 				E4C9531E29BAF2E800B1D912 /* Assets.xcassets */,
 				E4C9532029BAF2E800B1D912 /* Preview Content */,
 			);
@@ -155,8 +181,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C9531D29BAF2E700B1D912 /* ContentView.swift in Sources */,
+				E4C9533629BAF53A00B1D912 /* NavBarView.swift in Sources */,
+				E4C9533829BAF54F00B1D912 /* users.swift in Sources */,
+				E4C9533C29BAF5B100B1D912 /* variables.swift in Sources */,
+				E4C9533429BAF52400B1D912 /* createnewaccountUIView.swift in Sources */,
+				E4C9533229BAF50B00B1D912 /* ContentView.swift in Sources */,
+				E4C9533A29BAF57400B1D912 /* viewModel.swift in Sources */,
+				E4C9534329BAFB6C00B1D912 /* testView.swift in Sources */,
 				E4C9531B29BAF2E700B1D912 /* PLWD_CaregiverApp.swift in Sources */,
+				E4C9534129BAF9AB00B1D912 /* MapView.swift in Sources */,
+				E4C9533E29BAF7A000B1D912 /* bluetoothView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +322,9 @@
 				DEVELOPMENT_TEAM = L6UNLH3P6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PLWD-Caregiver-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow using bluetooth for discovering peripherals";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -317,6 +354,9 @@
 				DEVELOPMENT_TEAM = L6UNLH3P6X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PLWD-Caregiver-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow using bluetooth for discovering peripherals";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow using bluetooth for discovering peripherals";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
