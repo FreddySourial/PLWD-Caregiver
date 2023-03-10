@@ -32,6 +32,7 @@
 		E4C9535229BB0FCE00B1D912 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534A29BB0FCE00B1D912 /* mapView.swift */; };
 		E4C9535329BB0FCE00B1D912 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534B29BB0FCE00B1D912 /* Business.swift */; };
 		E4C9535529BB222A00B1D912 /* BLEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9535429BB222A00B1D912 /* BLEView.swift */; };
+		E4C9535729BB23D300B1D912 /* BLEViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9535629BB23D300B1D912 /* BLEViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		E4C9534A29BB0FCE00B1D912 /* mapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapView.swift; path = ../../ProjectCS_4thYear/ProjectCS_4thYear/mapView.swift; sourceTree = "<group>"; };
 		E4C9534B29BB0FCE00B1D912 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		E4C9535429BB222A00B1D912 /* BLEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEView.swift; sourceTree = "<group>"; };
+		E4C9535629BB23D300B1D912 /* BLEViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E4C9534929BB0FCE00B1D912 /* historyView.swift */,
 				E4C9534829BB0FCE00B1D912 /* myProfileView.swift */,
 				E4C9535429BB222A00B1D912 /* BLEView.swift */,
+				E4C9535629BB23D300B1D912 /* BLEViewWrapper.swift */,
 				E4C9531E29BAF2E800B1D912 /* Assets.xcassets */,
 				E4C9532029BAF2E800B1D912 /* Preview Content */,
 			);
@@ -222,6 +225,7 @@
 				E4C9535129BB0FCE00B1D912 /* historyView.swift in Sources */,
 				E4C9533A29BAF57400B1D912 /* viewModel.swift in Sources */,
 				E4C9534D29BB0FCE00B1D912 /* viewView.swift in Sources */,
+				E4C9535729BB23D300B1D912 /* BLEViewWrapper.swift in Sources */,
 				E4C9534329BAFB6C00B1D912 /* testView.swift in Sources */,
 				E4C9531B29BAF2E700B1D912 /* PLWD_CaregiverApp.swift in Sources */,
 				E4C9535329BB0FCE00B1D912 /* Business.swift in Sources */,

@@ -19,6 +19,7 @@ struct NavBarView: View {
             switch selectedIndex {
             case 0:
                 // Replace this with the view you want to navigate to for button 1
+                //BLEViewWrapper()
                 bluetoothView()
 //                Text("View 3")
             case 1:
