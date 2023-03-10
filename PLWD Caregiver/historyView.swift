@@ -42,14 +42,22 @@ struct historyView: View {
 //
 //                }
 //            }
-            List (model.listusers) {item in
-                Text(item.usernameR)
-                
-                Text (item.passwordR)
-                
-            }
-                /////////////////////////////////////////
+            
+            ////// WORKING LIST TO SHOW OTHER COLLECTION!
+//
+//            List (model.listusers) {item in
+//                Text(item.usernameR)
+//
+//                Text (item.passwordR)
+//
+//            }
+//                /////////////////////////////////////////
+            Spacer()
+            Text ("List of Safe Spaces").bold(true)
+                .font(.title2)
+                .multilineTextAlignment(.center)
             List (model.list) { item in
+                
                 HStack {
                     Text(item.location)
                     Spacer()
@@ -82,6 +90,7 @@ struct historyView: View {
             }
          Divider()
             VStack(spacing: 5){
+                Text ("Would you like to add a new location?").bold(true)
                 TextField ("location", text: $location)
                     .padding(.all)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
