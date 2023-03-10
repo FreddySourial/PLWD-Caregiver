@@ -14,11 +14,18 @@ struct viewView: View {
         
         NavigationStack{
             MapView1(mapController: mapController)
-        }
+                .edgesIgnoringSafeArea(.all)
+        }.edgesIgnoringSafeArea(.all)
+            .padding(.vertical, 0.0)
         .searchable(text: $mapController.searchTerm)
+        .navigationBarTitleDisplayMode(.inline)
+       
         .onSubmit(of: .search) {
             mapController.search()
+            
         }
+            .navigationBarHidden(true)
+            .navigationBarItems(leading: EmptyView())
     }
     
     struct viewView_Previews: PreviewProvider {

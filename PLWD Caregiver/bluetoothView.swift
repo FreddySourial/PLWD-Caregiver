@@ -49,7 +49,9 @@ struct bluetoothView: View {
             Text(peripheral)
         }
         .navigationTitle("Peripherals")
-    }
+        }
+        .padding(.bottom)
+        .edgesIgnoringSafeArea(.all)
 }
 }
 

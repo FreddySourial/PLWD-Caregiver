@@ -137,7 +137,7 @@ struct ContentView: View {
             }
             
             if isButtonClicked {
-                            Text("Hello, World!")
+                            Text("")
                                 .onAppear {
                                     showingLoginScreen = true
                                     // This will be executed only once the button is clicked

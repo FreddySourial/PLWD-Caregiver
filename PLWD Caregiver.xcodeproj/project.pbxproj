@@ -31,6 +31,7 @@
 		E4C9535129BB0FCE00B1D912 /* historyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534929BB0FCE00B1D912 /* historyView.swift */; };
 		E4C9535229BB0FCE00B1D912 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534A29BB0FCE00B1D912 /* mapView.swift */; };
 		E4C9535329BB0FCE00B1D912 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9534B29BB0FCE00B1D912 /* Business.swift */; };
+		E4C9535529BB222A00B1D912 /* BLEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9535429BB222A00B1D912 /* BLEView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		E4C9534929BB0FCE00B1D912 /* historyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = historyView.swift; sourceTree = "<group>"; };
 		E4C9534A29BB0FCE00B1D912 /* mapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapView.swift; path = ../../ProjectCS_4thYear/ProjectCS_4thYear/mapView.swift; sourceTree = "<group>"; };
 		E4C9534B29BB0FCE00B1D912 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		E4C9535429BB222A00B1D912 /* BLEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +106,15 @@
 				E4C9533929BAF57400B1D912 /* viewModel.swift */,
 				E4C9533B29BAF5B100B1D912 /* variables.swift */,
 				E4C9534229BAFB6C00B1D912 /* testView.swift */,
+				E4C9534529BB0FCD00B1D912 /* viewView.swift */,
 				E4C9534629BB0FCE00B1D912 /* action.swift */,
 				E4C9534B29BB0FCE00B1D912 /* Business.swift */,
 				E4C9534729BB0FCE00B1D912 /* BusinessView.swift */,
-				E4C9534929BB0FCE00B1D912 /* historyView.swift */,
 				E4C9534429BB0FCD00B1D912 /* mapController.swift */,
 				E4C9534A29BB0FCE00B1D912 /* mapView.swift */,
+				E4C9534929BB0FCE00B1D912 /* historyView.swift */,
 				E4C9534829BB0FCE00B1D912 /* myProfileView.swift */,
-				E4C9534529BB0FCD00B1D912 /* viewView.swift */,
+				E4C9535429BB222A00B1D912 /* BLEView.swift */,
 				E4C9531E29BAF2E800B1D912 /* Assets.xcassets */,
 				E4C9532029BAF2E800B1D912 /* Preview Content */,
 			);
@@ -214,6 +217,7 @@
 				E4C9535029BB0FCE00B1D912 /* myProfileView.swift in Sources */,
 				E4C9533429BAF52400B1D912 /* createnewaccountUIView.swift in Sources */,
 				E4C9534C29BB0FCE00B1D912 /* mapController.swift in Sources */,
+				E4C9535529BB222A00B1D912 /* BLEView.swift in Sources */,
 				E4C9533229BAF50B00B1D912 /* ContentView.swift in Sources */,
 				E4C9535129BB0FCE00B1D912 /* historyView.swift in Sources */,
 				E4C9533A29BAF57400B1D912 /* viewModel.swift in Sources */,

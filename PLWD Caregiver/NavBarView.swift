@@ -10,11 +10,12 @@ import SwiftUI
 
 struct NavBarView: View {
     @State private var selectedIndex = 0
-    
+    let lemonYellow = Color(hue: 0.1639, saturation: 1, brightness: 1)
+    let steelGray = Color(white: 0.4745)
     var body: some View {
         
         VStack(spacing: 0) {
-            Spacer()
+            
             switch selectedIndex {
             case 0:
                 // Replace this with the view you want to navigate to for button 1
@@ -51,9 +52,12 @@ struct NavBarView: View {
                     Image(systemName: "house")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .shadow(radius: 4)
+                        
                 }
-                .foregroundColor(selectedIndex == 0 ? .blue : .gray)
+                .padding(.leading)
+                .foregroundColor(selectedIndex == 0 ? .blue : .blue.opacity(0.4))
                 
                 Spacer()
                 
@@ -64,9 +68,10 @@ struct NavBarView: View {
                     Image(systemName: "person.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .shadow(radius: 4)
                 }
-                .foregroundColor(selectedIndex == 1 ? .blue : .gray)
+                .foregroundColor(selectedIndex == 1 ? .blue : .blue.opacity(0.4))
                 
                 Spacer()
                 //
@@ -76,9 +81,10 @@ struct NavBarView: View {
                     Image(systemName: "paperplane.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .shadow(radius: 4)
                 }
-                .foregroundColor(selectedIndex == 2 ? .blue : .gray)
+                .foregroundColor(selectedIndex == 2 ? .blue : .blue.opacity(0.4))
                 
                 Spacer()
                 //
@@ -88,22 +94,25 @@ struct NavBarView: View {
                     Image(systemName: "map.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .shadow(radius: 4)
                 }
-                .foregroundColor(selectedIndex == 3 ? .blue : .gray)
+                .foregroundColor(selectedIndex == 3 ? .blue : .blue.opacity(0.4))
                 
                 Spacer()
               //
                 //
                 Button(action: {
-                    selectedIndex = 4 
+                    selectedIndex = 4
                 }) {
                     Image(systemName: "gearshape")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 35, height: 35)
+                        .fontWeight(.bold)
+                        .shadow(radius: 4)
                 }
-                .foregroundColor(selectedIndex == 4 ? .blue : .gray)
+                .foregroundColor(selectedIndex == 4 ? .blue : .blue.opacity(0.4))
                 
                 Spacer()
             //
@@ -111,19 +120,14 @@ struct NavBarView: View {
             }
             
             .padding(.horizontal)
-            .padding(.vertical, 8)
-            .background(Color.white)
-            .cornerRadius(30)
+            .padding(.vertical, 11)
+            .background(Color.gray.opacity(0.1))
+            
             .shadow(radius: 5)
-            .padding(.horizontal)
-            .padding(.vertical, 10)
+//            .padding(.horizontal)
+//            .padding(.vertical, 10)
             .edgesIgnoringSafeArea(.all)
             
-            Spacer()
-            
-         
-            
-            Spacer()
         }
     }
 }
