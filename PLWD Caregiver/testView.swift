@@ -14,6 +14,7 @@ struct testView: View {
             if let latitude = locationViewModel.latitude, let longitude = locationViewModel.longitude {
                 MapView(latitude: latitude, longitude: longitude)
                     .edgesIgnoringSafeArea(.all)
+                    .navigationBarHidden(true)
             } else {
                 Text("Loading...")
             }

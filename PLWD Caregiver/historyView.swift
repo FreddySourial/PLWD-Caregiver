@@ -17,6 +17,7 @@ struct historyView: View {
     
     var body: some View {
         VStack {
+            Spacer()
 //            List (model.list) { item in
 //                HStack {
 //                    Text(item.name)
@@ -53,6 +54,9 @@ struct historyView: View {
 //            }
 //                /////////////////////////////////////////
             Spacer()
+            Text (" ").bold(true)
+                .font(.title2)
+                .multilineTextAlignment(.center)
             Text ("List of Safe Spaces").bold(true)
                 .font(.title2)
                 .multilineTextAlignment(.center)
@@ -85,14 +89,18 @@ struct historyView: View {
                     
                     
                     
-                } //hstsck brackets
+                }  //hstsck brackets
                 
             }
-         Divider()
+            .background(Color.gray.opacity(0.1))
+            
+            
+            //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
             VStack(spacing: 5){
+                
                 Text ("Would you like to add a new location?").bold(true)
                 TextField ("location", text: $location)
-                    .padding(.all)
+                    .padding(.all) .foregroundColor(Color.gray.opacity(0.1))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("address", text: $address)
                     .padding(.all)
@@ -110,7 +118,9 @@ struct historyView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
-            .padding(.all, 0.0)
+            .background(Color.gray.opacity(0.1))
+          
+            
             
 
         }

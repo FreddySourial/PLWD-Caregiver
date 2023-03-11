@@ -10,13 +10,18 @@ import SwiftUI
 struct myProfileView: View {
     
     var body: some View {
+        VStack {
+            Text("My profile view")
+        }
         
-        Text("My profile view")
+        
+            
     }
 }
 
 struct myProfileView_Previews: PreviewProvider {
     static var previews: some View {
         myProfileView()
+            .background(Color.gray.opacity(0.1))
     }
 }

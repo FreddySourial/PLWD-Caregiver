@@ -18,6 +18,7 @@ class BluetoothViewModel: NSObject, ObservableObject {
     @Published var bleconnect = false
     @Published var peripheralNames: [String] = []
     private var timer: Timer?
+    @Published var lastConnectionTime: Date?
 //    override init() {
 //        super.init()
 //        self.centralManager = CBCentralManager(delegate: self, queue: .main)
@@ -76,6 +77,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
                 }
                 if name.lowercased().contains("ipad") {
                     bleconnect = true
+                    lastConnectionTime = Date()
                     print("Found iPad!")
                 } else if !self.peripheralNames.contains(where: { $0.lowercased().contains("ipad") }) {
                     bleconnect = false
@@ -148,39 +150,52 @@ struct bluetoothView: View {
        
             VStack {
                 Spacer()
+                    .padding(.bottom, 0.0)
+                
                 if (bluetoothViewModel.bleconnect == true) {
-               
-                               Text("Bluetooth Connection is Established. Device is nearby.")
-                                   .fontWeight(.bold)
-                                   .multilineTextAlignment(.center)
-               
-                                   .padding(.all)
-                                   .foregroundColor(.black)
-                                   .frame(width: 300, height: 100.0)
-                                       .background(Color.green)
-                                       .cornerRadius(10)
-                           } else {
-                               Text ("BLUETOOTH CONNECTION HAS BEEN LOST! SEARCHING FOR GPS COORDINATES")
-                                   .fontWeight(.bold)
-                                   .multilineTextAlignment(.center)
-               
-                                   .padding(.all)
-                                   .foregroundColor(.black)
-                                   .frame(width: 300, height: 100.0)
-                                       .background(Color.red)
-                                       .cornerRadius(10)
-                           }
-                Spacer()
+                               
+                                               Text("Bluetooth Connection is Established. Device is nearby.")
+                                                   .fontWeight(.bold)
+                                                   .multilineTextAlignment(.center)
+                               
+                                                   .padding(.all)
+                                                   .foregroundColor(.black)
+                                                   .frame(width: 300, height: 100.0)
+                                                       .background(Color.green)
+                                                       .cornerRadius(10)
+                                           } else {
+                                               Text ("BLUETOOTH CONNECTION HAS BEEN LOST! SEARCHING FOR GPS COORDINATES")
+                                                   .fontWeight(.bold)
+                                                   .multilineTextAlignment(.center)
+                               
+                                                   .padding(.all)
+                                                   .foregroundColor(.black)
+                                                   .frame(width: 300, height: 100.0)
+                                                       .background(Color.red)
+                                                       .cornerRadius(10)
+                                               Spacer()
+                                           }
+                
+                
+              
+                
+            
                 List(bluetoothViewModel.peripheralNames.filter { $0 != "unnamed device" }, id: \.self) { peripheral in
                     Text(peripheral)
+                    
+                    
                 }
+                .frame(height: 300.0) .background(Color.gray.opacity(0.1)).ignoresSafeArea()
                 
                 
-            }
+            }.background(Color.gray.opacity(0.1)) .ignoresSafeArea()
+            
 //        List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
 //            Text(peripheral)
 //        }
         .navigationTitle("Peripherals")
+        .edgesIgnoringSafeArea(.all)
+            
         }
         .padding(.bottom)
         .edgesIgnoringSafeArea(.all)
