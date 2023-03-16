@@ -33,7 +33,7 @@ class LocationViewModel: ObservableObject {
         let db = Firestore.firestore()
         //hQaQgQewO0qpyQO0X8Wn
         //6ECoNaqSHuYLlvtmpgZJ
-        db.collection("Data").document("hQaQgQewO0qpyQO0X8Wn").getDocument { snapshot, error in
+        db.collection("Data").document("0mzofuw87bSB1Dctdcks").getDocument { snapshot, error in
             guard let snapshot = snapshot, snapshot.exists, let data = snapshot.data() else {
                 print("Error fetching location data: \(error?.localizedDescription ?? "Unknown error")")
                 return

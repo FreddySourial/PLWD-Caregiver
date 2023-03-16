@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Firebase
+
+
 struct historyView: View {
     @ObservedObject var model = ViewModel()
     
@@ -17,9 +19,16 @@ struct historyView: View {
     
     var body: some View {
         ZStack {
-            
+          
+                                  LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+                                                    
+                                  LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                             
             VStack {
-                Spacer()
+                
+                           
+                              
+           
     //            List (model.list) { item in
     //                HStack {
     //                    Text(item.name)
@@ -55,13 +64,27 @@ struct historyView: View {
     //
     //            }
     //                /////////////////////////////////////////
-                Spacer()
+       
                 Text (" ").bold(true)
                     .font(.title2)
                     .multilineTextAlignment(.center)
-                Text ("List of Safe Spaces").bold(true)
+                    .padding(.top)
+               
+                
+            
+                
+                //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
+         
+               
+//                .background(Color.gray.opacity(0.1))
+              
+                
+                Text ("List of Safe Spaces").bold(true) .foregroundColor(.white)
                     .font(.title2)
                     .multilineTextAlignment(.center)
+               
+                
+                
                 List (model.list) { item in
                     
                     HStack {
@@ -91,42 +114,81 @@ struct historyView: View {
                         
                         
                         
-                    }  //hstsck brackets
+                    }
+                    //hstsck brackets
+                   
+                    
+                    
+                    
                     
                 }
-                .background(Color.gray.opacity(0.1))
+                .frame(height: 250.0)
+                .listStyle(PlainListStyle())
+                .background(
+                    ZStack {
+                        LinearGradient(
+                            gradient: Gradient(
+                                colors: [
+                                    Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)),
+                                    Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+                                ]
+                            ),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        LinearGradient(
+                            gradient: Gradient(
+                                colors: [
+                                    Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6),
+                                    Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)
+                                ]
+                            ),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                      
+                    }
+                        .blur(radius: 11)
+                )
                 
                 
-                //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
                 VStack(spacing: 5){
+//                    ScrollView(.vertical) { // Add ScrollView here
+//                        TextField ("location", text: $location)
+//                            .padding(.all)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+//                        TextField("address", text: $address)
+//                            .padding(.all)
+//                            .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    }
+                  
+                
+                        Text ("Would you like to add a new location?").bold(true) .foregroundColor(.white)
+                        TextField ("location", text: $location)
+                            .padding(.all)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        TextField("address", text: $address)
+                            .padding(.all)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Button(action: {
+                            model.addData(location: location, address: address)
+                        location = ""
+                        address = ""
+                        }, label: {
+                            Text("Add safe space")
+                        })
+                        .foregroundColor(.white)
+                            .frame(width: 300, height: 50)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                     
-                    Text ("Would you like to add a new location?").bold(true)
-                    TextField ("location", text: $location)
-                        .padding(.all) .foregroundColor(Color.gray.opacity(0.1))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("address", text: $address)
-                        .padding(.all)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    Button(action: {
-                        model.addData(location: location, address: address)
-                    location = ""
-                    address = ""
-                    }, label: {
-                        Text("Add safe space")
-                    })
-                    .foregroundColor(.white)
-                        .frame(width: 300, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                   Spacer()
                 }
-//                .background(Color.gray.opacity(0.1))
-              
-                
-                
-
             }
-        }.background(Color.gray.opacity(0.1))
+            .padding(.top, 15.0)
+        }
+//        .background(Color.gray.opacity(0.1))
     }
         
     init(){
