@@ -44,7 +44,7 @@ struct ContentView: View {
                 
                 Spacer()
             
-                Text("PLWD Login").font(.largeTitle).fontWeight(.bold).foregroundColor(Color.black).multilineTextAlignment(.center).bold() .padding(.vertical, -13.0) .fontDesign(Font.Design.rounded)
+                Text("Login").font(.title).fontWeight(.bold).foregroundColor(Color.white.opacity(0.88)).multilineTextAlignment(.center).bold() .padding([.top, .leading, .bottom], -13.0) .fontDesign(Font.Design.rounded)
                 Spacer()
                 Image("logo2")
                     .resizable()

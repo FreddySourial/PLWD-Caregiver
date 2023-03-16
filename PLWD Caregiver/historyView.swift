@@ -16,114 +16,117 @@ struct historyView: View {
     @State var usernameR = ""
     
     var body: some View {
-        VStack {
-            Spacer()
-//            List (model.list) { item in
-//                HStack {
-//                    Text(item.name)
-//                    Spacer()
-//
-//
-//                    //update button
-//                    //                    Button(action: {
-//                    //                        model.updateData(todoToUpdate: item)
-//                    //                    }, label: {
-//                    //                        Image(systemName: "pencil")
-//                    //                    })
-//
-//
-//                        .buttonStyle(BorderlessButtonStyle())
-//
-//                    Button(action: {
-//                        model.deleteData(todoToDelete: item)
-//                    }, label: {
-//                        Image(systemName: "minus.circle")
-//                    })
-//                    .buttonStyle(BorderlessButtonStyle())
-//
-//                }
-//            }
+        ZStack {
             
-            ////// WORKING LIST TO SHOW OTHER COLLECTION!
-//
-//            List (model.listusers) {item in
-//                Text(item.usernameR)
-//
-//                Text (item.passwordR)
-//
-//            }
-//                /////////////////////////////////////////
-            Spacer()
-            Text (" ").bold(true)
-                .font(.title2)
-                .multilineTextAlignment(.center)
-            Text ("List of Safe Spaces").bold(true)
-                .font(.title2)
-                .multilineTextAlignment(.center)
-            List (model.list) { item in
+            VStack {
+                Spacer()
+    //            List (model.list) { item in
+    //                HStack {
+    //                    Text(item.name)
+    //                    Spacer()
+    //
+    //
+    //                    //update button
+    //                    //                    Button(action: {
+    //                    //                        model.updateData(todoToUpdate: item)
+    //                    //                    }, label: {
+    //                    //                        Image(systemName: "pencil")
+    //                    //                    })
+    //
+    //
+    //                        .buttonStyle(BorderlessButtonStyle())
+    //
+    //                    Button(action: {
+    //                        model.deleteData(todoToDelete: item)
+    //                    }, label: {
+    //                        Image(systemName: "minus.circle")
+    //                    })
+    //                    .buttonStyle(BorderlessButtonStyle())
+    //
+    //                }
+    //            }
                 
-                HStack {
-                    Text(item.location)
-                    Spacer()
+                ////// WORKING LIST TO SHOW OTHER COLLECTION!
+    //
+    //            List (model.listusers) {item in
+    //                Text(item.usernameR)
+    //
+    //                Text (item.passwordR)
+    //
+    //            }
+    //                /////////////////////////////////////////
+                Spacer()
+                Text (" ").bold(true)
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                Text ("List of Safe Spaces").bold(true)
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                List (model.list) { item in
                     
-                    Text(item.address)
+                    HStack {
+                        Text(item.location)
+                        Spacer()
+                        
+                        Text(item.address)
+                        
                     
+                        //update button
+    //                    Button(action: {
+    //                        model.updateData(todoToUpdate: item)
+    //                    }, label: {
+    //                        Image(systemName: "pencil")
+    //                    })
+                        
+                        
+                        .buttonStyle(BorderlessButtonStyle())
+                        
+                        Button(action: {
+                            model.deleteData(todoToDelete: item)
+                        }, label: {
+                            Image(systemName: "minus.circle")
+                        })
+                        .buttonStyle(BorderlessButtonStyle())
+
+                        
+                        
+                        
+                    }  //hstsck brackets
+                    
+                }
+                .background(Color.gray.opacity(0.1))
                 
-                    //update button
-//                    Button(action: {
-//                        model.updateData(todoToUpdate: item)
-//                    }, label: {
-//                        Image(systemName: "pencil")
-//                    })
+                
+                //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
+                VStack(spacing: 5){
                     
-                    
-                    .buttonStyle(BorderlessButtonStyle())
+                    Text ("Would you like to add a new location?").bold(true)
+                    TextField ("location", text: $location)
+                        .padding(.all) .foregroundColor(Color.gray.opacity(0.1))
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("address", text: $address)
+                        .padding(.all)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Button(action: {
-                        model.deleteData(todoToDelete: item)
+                        model.addData(location: location, address: address)
+                    location = ""
+                    address = ""
                     }, label: {
-                        Image(systemName: "minus.circle")
+                        Text("Add safe space")
                     })
-                    .buttonStyle(BorderlessButtonStyle())
+                    .foregroundColor(.white)
+                        .frame(width: 300, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+//                .background(Color.gray.opacity(0.1))
+              
+                
+                
 
-                    
-                    
-                    
-                }  //hstsck brackets
-                
             }
-            .background(Color.gray.opacity(0.1))
-            
-            
-            //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
-            VStack(spacing: 5){
-                
-                Text ("Would you like to add a new location?").bold(true)
-                TextField ("location", text: $location)
-                    .padding(.all) .foregroundColor(Color.gray.opacity(0.1))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("address", text: $address)
-                    .padding(.all)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Button(action: {
-                    model.addData(location: location, address: address)
-                location = ""
-                address = ""
-                }, label: {
-                    Text("Add safe space")
-                })
-                .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-            .background(Color.gray.opacity(0.1))
-          
-            
-            
-
-        }
+        }.background(Color.gray.opacity(0.1))
     }
         
     init(){
