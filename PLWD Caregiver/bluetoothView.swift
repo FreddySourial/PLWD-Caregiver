@@ -168,7 +168,7 @@ struct bluetoothView: View {
 //                                .multilineTextAlignment(.center)
 //                                .padding(.top)
 //
-                            Text ("Connection Status").bold(true) .foregroundColor(.white)
+                            Text ("Connection Status").fontWeight(.black) .bold(true) .foregroundColor(.white)
                                 .font(.title2)
                                 .multilineTextAlignment(.center)
                                 .padding(.vertical, 16.0)
@@ -211,7 +211,7 @@ struct bluetoothView: View {
 
                             Spacer()
                             
-                            Text ("List of Bluetooth Devices").font(.title2).bold(true) .foregroundColor(.white).padding(.top, 10.0)
+                            Text ("List of Bluetooth Devices").fontWeight(.black) .font(.title2).bold(true) .foregroundColor(.white).padding(.top, 10.0)
                             
                             List(bluetoothViewModel.peripheralNames.filter { $0 != "unnamed device" }, id: \.self) { peripheral in
                                 RoundedRectangle(cornerRadius: 2)

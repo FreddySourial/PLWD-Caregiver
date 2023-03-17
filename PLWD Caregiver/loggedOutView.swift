@@ -1,18 +1,16 @@
 //
-//  ContentView.swift
-//  test.app
+//  loggedOutView.swift
+//  PLWD Caregiver
 //
-//  Created by Freddy Sourial on 2023-03-01.
+//  Created by Freddy Sourial on 2023-03-17.
 //
-
 import SwiftUI
 import Firebase
 import FirebaseAuth
 import CoreBluetooth
 
-struct ContentView: View {
+struct loggedOutView: View {
     
-    @State private var erroralert = false
     @State private var isButtonClicked = false
     @State private var username = ""
     @State private var password = ""
@@ -23,7 +21,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        NavigationView{
+      
         
         ZStack {
            
@@ -74,7 +72,6 @@ struct ContentView: View {
                                       authResult, error in
                                       if let error = error {
                                           print(error)
-                                          erroralert = true
                                           return
                                       }
                                       isButtonClicked = true
@@ -88,8 +85,6 @@ struct ContentView: View {
                     
                   
                     
-                } .alert(isPresented: $erroralert) {
-                    Alert(title: Text("Error"), message: Text("Incorrect Username or Password. Please try again"), dismissButton: .default(Text("OK")))
                 }
 
                
@@ -153,7 +148,7 @@ struct ContentView: View {
 //            .navigationBarHidden(false)
             Spacer()
         }
-        }
+        
     }
         
     func authenticateUser(username: String, password: String) {
@@ -175,20 +170,8 @@ struct ContentView: View {
     }
     }
 
-struct ContentView_Previews: PreviewProvider {
+struct loggedOutView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().navigationBarHidden(true)
+        loggedOutView()
     }
 }
-
-
-
-
-
-//
-//  HomeView.swift
-//  test.app
-//
-//  Created by Freddy Sourial on 2023-03-01.
-//
-

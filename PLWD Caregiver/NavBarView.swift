@@ -28,19 +28,20 @@ struct NavBarView: View {
                     //                Text("View 3")
                 case 1:
                     
-                    historyView()
+                    testView()
                     
                 case 2:
                     
-                    testView()
+                    viewView()
                     
                 case 3:
                     
-                    viewView()
+                    myProfileView()
                     
                 case 4:
                     
-                    myProfileView()
+                    
+                    historyView()
                     
                 default:
                     Text("Unknown view")
@@ -62,27 +63,13 @@ struct NavBarView: View {
                         
                     }.padding(.bottom)
                         .padding([.top, .leading, .bottom])
-                        .foregroundColor(selectedIndex == 0 ? .blue : .blue.opacity(0.4))
+                        .foregroundColor(selectedIndex == 0 ? .white : .white.opacity(0.67))
                     
                     Spacer()
                     
                     //
                     Button(action: {
                         selectedIndex = 1
-                    }) {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 35, height: 35)
-                            .shadow(radius: 4)
-                    }
-                    .padding(.bottom)
-                    .foregroundColor(selectedIndex == 1 ? .blue : .blue.opacity(0.4))
-                    
-                    Spacer()
-                    //
-                    Button(action: {
-                        selectedIndex = 2
                     }) {
                         Image(systemName: "paperplane.fill")
                             .resizable()
@@ -91,12 +78,12 @@ struct NavBarView: View {
                             .shadow(radius: 4)
                     }
                     .padding(.bottom)
-                    .foregroundColor(selectedIndex == 2 ? .blue : .blue.opacity(0.4))
+                    .foregroundColor(selectedIndex == 1 ? .white : .white.opacity(0.67))
                     
                     Spacer()
                     //
                     Button(action: {
-                        selectedIndex = 3
+                        selectedIndex = 2
                     }) {
                         Image(systemName: "map.circle")
                             .resizable()
@@ -105,7 +92,21 @@ struct NavBarView: View {
                             .shadow(radius: 4)
                     }
                     .padding(.bottom)
-                    .foregroundColor(selectedIndex == 3 ? .blue : .blue.opacity(0.4))
+                    .foregroundColor(selectedIndex == 2 ? .white : .white.opacity(0.67))
+                    
+                    Spacer()
+                    //
+                    Button(action: {
+                        selectedIndex = 3
+                    }) {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35, height: 35)
+                            .shadow(radius: 4)
+                    }
+                    .padding(.bottom)
+                    .foregroundColor(selectedIndex == 3 ? .white : .white.opacity(0.67))
                     
                     Spacer()
                     //
@@ -121,7 +122,7 @@ struct NavBarView: View {
                             .shadow(radius: 4)
                     }
                     .padding(.bottom)
-                    .foregroundColor(selectedIndex == 4 ? .blue : .blue.opacity(0.4))
+                    .foregroundColor(selectedIndex == 4 ? .white : .white.opacity(0.67))
                     
                     Spacer()
                     //
@@ -130,7 +131,7 @@ struct NavBarView: View {
                 
                 .padding(.horizontal)
                 .padding(.vertical, 11)
-                .background(Color.gray.opacity(0.1))
+                .background(Color.white.opacity(0.1))
                 
                 
                 .shadow(radius: 5)

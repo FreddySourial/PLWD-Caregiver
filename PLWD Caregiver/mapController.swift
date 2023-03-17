@@ -6,7 +6,6 @@
 //
 
 import MapKit
-
 class MapController: ObservableObject {
     var searchTerm = String()
     @Published var isBusinessViewShowing = false
@@ -43,8 +42,8 @@ class MapController: ObservableObject {
                 }
             }
         }
-        createActions()
     }
+    
     func openMap(coordinate: CLLocationCoordinate2D){
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
         mapItem.openInMaps()
@@ -53,7 +52,9 @@ class MapController: ObservableObject {
     func setSelectBusiness(for business: Business){
         selectedBusiness = business
         isBusinessViewShowing.toggle()
+        createActions()
     }
+    
     func createActions(){
         actions = [
             Action(title: "Drive", image: "car.fill"){ [weak self] in
@@ -75,14 +76,13 @@ class MapController: ObservableObject {
     }
     
     
-    
-    
     func convertPhoneNumberFormat(phoneNumber: String) -> String {
-        let strippedPhoneNumber = phoneNumber
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-            .components(separatedBy: CharacterSet.decimalDigits.inverted)
+       let phone1=phoneNumber
+            let strippedPhoneNumber = phoneNumber
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+                .components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined()
         
-        return "tell//\(strippedPhoneNumber)"
+        return (phone1)
     }
 }

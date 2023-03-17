@@ -33,7 +33,7 @@ struct historyView: View {
                     .multilineTextAlignment(.center)
                     .padding(.top)
   
-                Text ("List of Safe Spaces").bold(true) .foregroundColor(.white)
+                Text ("List of Safe Spaces") .fontWeight(.black) .bold(true) .foregroundColor(.white)
                     .font(.title2)
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 0)
@@ -100,10 +100,10 @@ struct historyView: View {
                     
                 
                     Text ("Would you like to add a new location?").font(.title2).bold(true) .foregroundColor(.white)
-                        TextField ("location", text: $location)
+                        TextField ("Location", text: $location)
                             .padding(.all)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                        TextField("address", text: $address)
+                        TextField("Address", text: $address)
                             .padding(.all)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         Button(action: {
