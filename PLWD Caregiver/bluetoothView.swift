@@ -15,7 +15,10 @@ import CoreBluetooth
 class BluetoothViewModel: NSObject, ObservableObject {
     private var centralManager: CBCentralManager?
     private var peripherals: [CBPeripheral] = []
+//    @Published var bleconnect = false
     @Published var bleconnect = false
+    @Published var bleconnect1 = false
+    @Published var blenot = true
     @Published var peripheralNames: [String] = []
     private var timer: Timer?
     @Published var lastConnectionTime: Date?
@@ -34,6 +37,7 @@ class BluetoothViewModel: NSObject, ObservableObject {
                 self?.peripherals.removeAll()
                 self?.peripheralNames.removeAll()
                 self?.centralManager?.scanForPeripherals(withServices: nil)
+                
             }
         }
     
@@ -61,6 +65,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
             self.centralManager?.scanForPeripherals(withServices: nil)
+           
         }
     }
     
@@ -68,22 +73,30 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        //
         if !peripherals.contains(peripheral) {
             self.peripherals.append(peripheral)
-            
+            //
             if let name = peripheral.name, name != "unnamed device" {
+               //
                 DispatchQueue.main.async {
                     self.peripheralNames.append(name)
+               //
                 }
                 if name.lowercased().contains("ipad") {
                     bleconnect = true
                     lastConnectionTime = Date()
                     print("Found iPad!")
+                    print(lastConnectionTime)
                 } else if !self.peripheralNames.contains(where: { $0.lowercased().contains("ipad") }) {
-                    bleconnect = false
+                                blenot = false
+                                bleconnect = false
+                            
+                  
                 }
+                
             }
-            
+           
 //            if let name = peripheral.name, name != "unnamed device" {
 //                self.peripheralNames.append(name)
 //                if (name.lowercased() != "ipad") {
@@ -96,7 +109,15 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
 //                }
 //
 //            }
+            
+        }
+        
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in
             print(bleconnect)
+            
+            bleconnect1 =  bleconnect
+            print("BLENOT: \(blenot)")
         }
     }
     
@@ -153,73 +174,82 @@ struct bluetoothView: View {
                                           
                                           LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
                                    .edgesIgnoringSafeArea(.all)
-                    VStack {
-                        Spacer()
-                            .padding(.bottom, 0.0)
-                        
-                        if (bluetoothViewModel.bleconnect == true) {
-                                       
-                                                       Text("Bluetooth Connection is Established. Device is nearby.")
-                                                           .fontWeight(.bold)
-                                                           .multilineTextAlignment(.center)
-                                       
-                                                           .padding(.all)
-                                                           .foregroundColor(.black)
-                                                           .frame(width: 300, height: 100.0)
-                                                               .background(Color.green)
-                                                               .cornerRadius(10)
-                                                   } else {
-                                                       Text ("BLUETOOTH CONNECTION HAS BEEN LOST! SEARCHING FOR GPS COORDINATES")
-                                                           .fontWeight(.bold)
-                                                           .multilineTextAlignment(.center)
-                                       
-                                                           .padding(.all)
-                                                           .foregroundColor(.black)
-                                                           .frame(width: 300, height: 100.0)
-                                                               .background(Color.red)
-                                                               .cornerRadius(10)
-                                                       Spacer()
-                                                   }
-                        
-                        
-                      
-                        
                     
-                        List(bluetoothViewModel.peripheralNames.filter { $0 != "unnamed device" }, id: \.self) { peripheral in
-                            Text(peripheral)
+                        VStack {
+                            Spacer()
+                                .padding(.bottom, 7.0)
                             
+                            
+                            
+                            if (bluetoothViewModel.bleconnect1 == true) {
+                                if (bluetoothViewModel.bleconnect1 != false){
+                                    Text("Bluetooth Connection is Established. Device is nearby.")
+                                        .fontWeight(.bold)
+                                        .multilineTextAlignment(.center)
+                                    
+                                        .padding(.all)
+                                        .foregroundColor(.black)
+                                        .frame(width: 300, height: 100.0)
+                                        .background(Color.green)
+                                        .cornerRadius(10)
+                                }
+                            }else if (bluetoothViewModel.bleconnect1 == false && bluetoothViewModel.blenot == false) {
+                                
+                                Text ("BLUETOOTH CONNECTION HAS BEEN LOST! SEARCHING FOR GPS COORDINATES")
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.all)
+                                    .foregroundColor(.black)
+                                    .frame(width: 300, height: 100.0)
+                                    .background(Color.red)
+                                    .cornerRadius(10)
+                                Spacer()
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            List(bluetoothViewModel.peripheralNames.filter { $0 != "unnamed device" }, id: \.self) { peripheral in
+                                Text(peripheral)
+                                
+                                
+                            }
+                            .listStyle(PlainListStyle())
+                            .background(
+                                ZStack {
+                                    LinearGradient(
+                                        gradient: Gradient(
+                                            colors: [
+                                                Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)),
+                                                Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+                                            ]
+                                        ),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                    LinearGradient(
+                                        gradient: Gradient(
+                                            colors: [
+                                                Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6),
+                                                Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)
+                                            ]
+                                        ),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                }
+                                    .blur(radius: 11)
+                            )
+                            //                    .frame(height: 300.0)
+                            .edgesIgnoringSafeArea(.all)
                             
                         }
-                        .listStyle(PlainListStyle())
-                        .background(
-                            ZStack {
-                                LinearGradient(
-                                    gradient: Gradient(
-                                        colors: [
-                                            Color(#colorLiteral(red: 0.6759886742, green: 0.9469802976, blue: 1, alpha: 1)),
-                                            Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-                                        ]
-                                    ),
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                                LinearGradient(
-                                    gradient: Gradient(
-                                        colors: [
-                                            Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)).opacity(0.6),
-                                            Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)).opacity(0.3)
-                                        ]
-                                    ),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            }
-                                .blur(radius: 11)
-                        )
-    //                    .frame(height: 300.0)
-                        .edgesIgnoringSafeArea(.all)
                         
-                    }
                     
 //                    .background(Color.gray.opacity(0.1)) .ignoresSafeArea()
                 }

@@ -16,7 +16,7 @@ struct testView: View {
                     .edgesIgnoringSafeArea(.all)
                     .navigationBarHidden(true)
             } else {
-                Text("Loading...")
+                Text("Waiting for GPS Coordinates...")
             }
         }
         .onAppear {

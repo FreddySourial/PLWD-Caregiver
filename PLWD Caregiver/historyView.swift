@@ -28,101 +28,43 @@ struct historyView: View {
                 
                            
                               
-           
-    //            List (model.list) { item in
-    //                HStack {
-    //                    Text(item.name)
-    //                    Spacer()
-    //
-    //
-    //                    //update button
-    //                    //                    Button(action: {
-    //                    //                        model.updateData(todoToUpdate: item)
-    //                    //                    }, label: {
-    //                    //                        Image(systemName: "pencil")
-    //                    //                    })
-    //
-    //
-    //                        .buttonStyle(BorderlessButtonStyle())
-    //
-    //                    Button(action: {
-    //                        model.deleteData(todoToDelete: item)
-    //                    }, label: {
-    //                        Image(systemName: "minus.circle")
-    //                    })
-    //                    .buttonStyle(BorderlessButtonStyle())
-    //
-    //                }
-    //            }
-                
-                ////// WORKING LIST TO SHOW OTHER COLLECTION!
-    //
-    //            List (model.listusers) {item in
-    //                Text(item.usernameR)
-    //
-    //                Text (item.passwordR)
-    //
-    //            }
-    //                /////////////////////////////////////////
-       
                 Text (" ").bold(true)
                     .font(.title2)
                     .multilineTextAlignment(.center)
                     .padding(.top)
-               
-                
-            
-                
-                //         Divider() .background(Color.gray.opacity(0.1)).ignoresSafeArea()
-         
-               
-//                .background(Color.gray.opacity(0.1))
-              
-                
+  
                 Text ("List of Safe Spaces").bold(true) .foregroundColor(.white)
                     .font(.title2)
                     .multilineTextAlignment(.center)
+                    .padding(.vertical, 10.0)
                
-                
+                Spacer()
                 
                 List (model.list) { item in
                     
-                    HStack {
-                        Text(item.location)
-                        Spacer()
-                        
-                        Text(item.address)
-                        
-                    
-                        //update button
-    //                    Button(action: {
-    //                        model.updateData(todoToUpdate: item)
-    //                    }, label: {
-    //                        Image(systemName: "pencil")
-    //                    })
-                        
-                        
-                        .buttonStyle(BorderlessButtonStyle())
-                        
-                        Button(action: {
-                            model.deleteData(todoToDelete: item)
-                        }, label: {
-                            Image(systemName: "minus.circle")
-                        })
-                        .buttonStyle(BorderlessButtonStyle())
-
-                        
-                        
-                        
-                    }
-                    //hstsck brackets
-                   
-                    
-                    
-                    
-                    
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(Color.white)
+                        .overlay(
+                            HStack(alignment: .center, spacing: 0)  {
+                                Text(item.location)
+                                Spacer()
+                                Text(item.address)
+                                .buttonStyle(BorderlessButtonStyle())
+                                Button(action: {
+                                    model.deleteData(todoToDelete: item)
+                                }, label: {
+                                    Image(systemName: "minus.circle")
+                                })
+                                .buttonStyle(BorderlessButtonStyle())
+//                                .cornerRadius(5)
+                            }
+                            .padding(.horizontal, 16)
+                        )
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
                 }
-                .frame(height: 250.0)
+                .cornerRadius(7)
+                .frame(height: 300.0)
                 .listStyle(PlainListStyle())
                 .background(
                     ZStack {
@@ -151,20 +93,12 @@ struct historyView: View {
                         .blur(radius: 11)
                 )
                 
-                
+                Spacer()
                 VStack(spacing: 5){
-//                    ScrollView(.vertical) { // Add ScrollView here
-//                        TextField ("location", text: $location)
-//                            .padding(.all)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                        TextField("address", text: $address)
-//                            .padding(.all)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                    }
-                  
+                  Spacer()
+                    
                 
-                        Text ("Would you like to add a new location?").bold(true) .foregroundColor(.white)
+                    Text ("Would you like to add a new location?").font(.title2).bold(true) .foregroundColor(.white)
                         TextField ("location", text: $location)
                             .padding(.all)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -188,16 +122,12 @@ struct historyView: View {
             }
             .padding(.top, 15.0)
         }
-//        .background(Color.gray.opacity(0.1))
     }
         
     init(){
         model.getData()
         model.getUsers()
-//        model.getUsers()
     }
-  
-   
 }
 
 struct historyView_Previews: PreviewProvider {
