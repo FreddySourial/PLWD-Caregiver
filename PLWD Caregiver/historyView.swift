@@ -36,7 +36,7 @@ struct historyView: View {
                 Text ("List of Safe Spaces").bold(true) .foregroundColor(.white)
                     .font(.title2)
                     .multilineTextAlignment(.center)
-                    .padding(.vertical, 10.0)
+                    .padding(.vertical, 0)
                
                 Spacer()
                 
@@ -63,6 +63,7 @@ struct historyView: View {
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                 }
+                .padding(.top, 10.0)
                 .cornerRadius(7)
                 .frame(height: 300.0)
                 .listStyle(PlainListStyle())
@@ -121,6 +122,7 @@ struct historyView: View {
                 }
             }
             .padding(.top, 15.0)
+            .navigationBarHidden(true)
         }
     }
         

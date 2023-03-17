@@ -163,21 +163,32 @@ struct bluetoothView: View {
                                    .edgesIgnoringSafeArea(.all)
                     
                         VStack {
-                            Spacer()
+//                            Text (" ").bold(true)
+//                                .font(.title2)
+//                                .multilineTextAlignment(.center)
+//                                .padding(.top)
+//
+                            Text ("Connection Status").bold(true) .foregroundColor(.white)
+                                .font(.title2)
+                                .multilineTextAlignment(.center)
+                                .padding(.vertical, 16.0)
                                 .padding(.bottom, 7.0)
                             
                             
+                            Spacer()
                             
                             if (bluetoothViewModel.bleconnect1 == true) {
                                 if (bluetoothViewModel.bleconnect1 != false){
                                     Text("Bluetooth Connection is Established. Device is nearby.")
                                         .fontWeight(.bold)
+                                        .foregroundColor(.white.opacity(0.9))
                                         .multilineTextAlignment(.center)
                                     
                                         .padding(.all)
                                         .foregroundColor(.black)
                                         .frame(width: 300, height: 100.0)
-                                        .background(Color.green)
+                                        .background(Color.green.opacity(0.5).blur(radius: 2))
+                                        
                                         .cornerRadius(10)
                                 }
                             }else if (bluetoothViewModel.bleconnect1 == false && bluetoothViewModel.blenot == false) {
@@ -197,19 +208,25 @@ struct bluetoothView: View {
                                 Spacer()
                                 
                             }
+
+                            Spacer()
                             
-                            
-                            
-                            
-                            
-                            
-                            
+                            Text ("List of Bluetooth Devices").font(.title2).bold(true) .foregroundColor(.white).padding(.top, 10.0)
                             
                             List(bluetoothViewModel.peripheralNames.filter { $0 != "unnamed device" }, id: \.self) { peripheral in
+                                RoundedRectangle(cornerRadius: 2)
+                                    .fill(Color.white)
+                                    .overlay(
+                                
                                 Text(peripheral)
                                 
-                                
+                               )
+                                    .listRowInsets(EdgeInsets())
+                                    .listRowBackground(Color.clear)
                             }
+                            .padding(.top, 0.0)
+                            .cornerRadius(7)
+                            .frame(height: 300.0)
                             .listStyle(PlainListStyle())
                             .background(
                                 ZStack {
@@ -240,17 +257,18 @@ struct bluetoothView: View {
                             .edgesIgnoringSafeArea(.all)
                             
                         }
+                        .padding(.top, 50.0)
                         
                     
 
                 }
                 
 
-            .navigationTitle("Peripherals")
-            .edgesIgnoringSafeArea(.all)
-                
-            }
             
+            .edgesIgnoringSafeArea(.all)
+            
+            }
+            .navigationBarHidden(true)
             
             .edgesIgnoringSafeArea(.all)
         }
