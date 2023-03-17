@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreBluetooth
-
+import Foundation
 
 
 
@@ -18,10 +18,10 @@ class BluetoothViewModel: NSObject, ObservableObject {
 //    @Published var bleconnect = false
     @Published var bleconnect = false
     @Published var bleconnect1 = false
+    @Published var nowww = "Test"
     @Published var blenot = true
     @Published var peripheralNames: [String] = []
     private var timer: Timer?
-    @Published var lastConnectionTime: Date?
 //    override init() {
 //        super.init()
 //        self.centralManager = CBCentralManager(delegate: self, queue: .main)
@@ -70,7 +70,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     }
     
     
-    
+  
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         //
@@ -85,68 +85,31 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
                 }
                 if name.lowercased().contains("ipad") {
                     bleconnect = true
-                    lastConnectionTime = Date()
                     print("Found iPad!")
-                    print(lastConnectionTime)
                 } else if !self.peripheralNames.contains(where: { $0.lowercased().contains("ipad") }) {
                                 blenot = false
                                 bleconnect = false
+                      nowww = getCurrentTime()
                             
                   
                 }
                 
             }
-           
-//            if let name = peripheral.name, name != "unnamed device" {
-//                self.peripheralNames.append(name)
-//                if (name.lowercased() != "ipad") {
-//                    bleconnect = false
-//                }
-//                if name.lowercased().contains("ipad") {
-//                    bleconnect = true
-//                    print("Found iPad!")
-//
-//                }
-//
-//            }
             
         }
         
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
             print(bleconnect)
             
             bleconnect1 =  bleconnect
             print("BLENOT: \(blenot)")
+            print("time: \(nowww)")
         }
     }
     
     
-//    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-//        if !peripherals.contains(peripheral) {
-//            self.peripherals.append(peripheral)
-//            if let name = peripheral.name, name != "unnamed device" {
-//                self.peripheralNames.append(name)
-//
-//
-//                if name == "Freddy's iPad" {
-//                               bleconnect = true
-//                           }
-////                if (peripheral.name=="Freddy's iPad"){
-////                    //BlueNRG
-////                    bleconnect = true
-////                    //                                   bleconnect1 = true
-////                    print("Connected OH BABBBYYYYY")
-////
-////
-////                    //                "Freddy’s MacBook Pro"
-////
-////                }
-//            }
-//            print (bleconnect)
-//
-//        }
-//    }
+
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         if let index = peripherals.firstIndex(of: peripheral) {
@@ -159,7 +122,31 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
 }
 
 
-
+func getCurrentTime() -> String {
+    let date = Date()
+    let calendar = Calendar.current
+    let day = calendar.component(.day, from: date)
+    let month = calendar.component(.month, from: date)
+    let year = calendar.component(.year, from: date)
+    let hour = calendar.component(.hour, from: date)
+    let minute = calendar.component(.minute, from: date)
+    let second = calendar.component(.second, from: date)
+    var minutetwo = "\(minute)"
+    if(minutetwo.count == 1){
+        minutetwo = "0\(minute)"
+    }
+    var hourtwo = "\(hour)"
+    if(hourtwo.count == 1){
+        hourtwo = "0\(hour)"
+    }
+    var secondtwo = "\(second)"
+    if(secondtwo.count == 1){
+        secondtwo = "0\(second)"
+    }
+    let thedate = "\(hourtwo):\(minutetwo):\(secondtwo) \(day)/\(month)/\(year) "
+   
+    return thedate
+}
 
 struct bluetoothView: View {
     @ObservedObject private var bluetoothViewModel = BluetoothViewModel()
@@ -203,6 +190,10 @@ struct bluetoothView: View {
                                     .frame(width: 300, height: 100.0)
                                     .background(Color.red)
                                     .cornerRadius(10)
+//                                Text ("Last connected on: \(getCurrentTime())")
+//                                Text("Attempting to recconect...")
+                                Text ("Last Connected: \(bluetoothViewModel.nowww)")
+                                Text("Attempting to recconect...")
                                 Spacer()
                                 
                             }
@@ -251,15 +242,10 @@ struct bluetoothView: View {
                         }
                         
                     
-//                    .background(Color.gray.opacity(0.1)) .ignoresSafeArea()
+
                 }
                 
-//                .background(Color.gray.opacity(0.1)) .ignoresSafeArea()
-                
-                
-    //        List(bluetoothViewModel.peripheralNames, id: \.self) { peripheral in
-    //            Text(peripheral)
-    //        }
+
             .navigationTitle("Peripherals")
             .edgesIgnoringSafeArea(.all)
                 
@@ -269,10 +255,7 @@ struct bluetoothView: View {
             .edgesIgnoringSafeArea(.all)
         }
 
-        
-//        onDisappear {
-//                    bluetoothViewModel.centralManager?.stopScan()
-//                }
+
 }
 }
 
