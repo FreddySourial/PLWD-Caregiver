@@ -23,7 +23,19 @@ extension View {
 struct myProfileView: View {
     @State var showingalert: Bool = false
     @State private var shouldShowLoggedOutView = false
-
+    
+    
+    @State private var isEditing = false
+    
+    @State private var name = "Arnold S"
+        @State private var age = "69"
+        @State private var dob = "6/9/1969"
+        @State private var height = "5'9'"
+        @State private var weight = "169 lbs"
+        @State private var allergies = "Peanut Allergy"
+        @State private var medications = "Razadyne,Aricept,Exelon"
+    @State private var contact = "Son"
+    @State private var Son = "613-619-7584"
     var body: some View {
         
         NavigationView{
@@ -53,13 +65,13 @@ struct myProfileView: View {
                             .multilineTextAlignment(.center)
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
-                        Spacer ()
-                        Text ("Arnold S") .fontWeight(.heavy)
+                        Spacer()
+                        TextField ("", text: $name) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
+                           
                     }
                     HStack {
                         Text ("Age:").fontWeight(.heavy)
@@ -69,12 +81,12 @@ struct myProfileView: View {
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("69").fontWeight(.heavy)
+                        TextField ("", text: $age) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
+                            .padding(.leading, 260.0)
                     }
                     HStack {
                         Text ("Date of Birth: ").fontWeight(.heavy)
@@ -84,12 +96,12 @@ struct myProfileView: View {
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("6/9/1969").fontWeight(.heavy)
+                        TextField ("", text: $dob) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
+                            
                     }
                     HStack {
                         Text ("Height: ").fontWeight(.heavy)
@@ -99,11 +111,10 @@ struct myProfileView: View {
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("5'9'").fontWeight(.heavy)
+                        TextField ("", text: $height) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
                     }
                     HStack {
@@ -114,28 +125,27 @@ struct myProfileView: View {
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("169 lbs").fontWeight(.heavy)
+                        TextField ("", text: $weight) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
                     }
                     HStack {
-                        Text ("Allergies:").fontWeight(.heavy)
+                        Text ("Emergency Contact:").fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
                             .multilineTextAlignment(.center)
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("Peanut Allergy").fontWeight(.heavy)
+                        TextField ("", text: $Son) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 0)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
                     }
+                    
                     HStack {
                         Text ("Medications: ").fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
@@ -144,13 +154,17 @@ struct myProfileView: View {
                             .padding(.vertical, 0)
                             .padding(.vertical, 1.8)
                         Spacer ()
-                        Text ("N/A").fontWeight(.heavy)
+                        TextField ("", text: $medications) .fontWeight(.heavy)
                             .bold(true) .foregroundColor(.white)
                             .font(.headline)
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.trailing)
                             .padding(.vertical, 1.8)
                     }
+                    
                     Spacer()
+                    
+                    
+                    
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -199,12 +213,13 @@ struct myProfileView: View {
                 //zstACK brackets
                 //            .navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.all)
-                
+                .navigationBarHidden(true)
                 
             }
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
         }
+        .navigationBarHidden(true)
     }
     
     struct myProfileView_Previews: PreviewProvider {
